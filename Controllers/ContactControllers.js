@@ -1,12 +1,13 @@
 // express : async handler - handles all the async functions
 const asyncHandler = require('express-async-handler')
-
+const DB_access = require("../Models/Models_contact")
 // @desc : Get contact
 // @route : GET /api/contacts
 // @access : public
 
 const GetContacts = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: "Get contacts" });
+  const GET_op = DB_access.find();
+  res.status(200).json(GET_op);
 });
 
 // @desc : Create a new contact
