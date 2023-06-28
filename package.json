@@ -11,10 +11,12 @@
   "author": "Kush Waikar",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "config": "^3.3.9",
-    "dotenv": "^16.1.3",
+    "decrypt": "0.0.1",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
-    "mongoose": "^7.2.2"
+    "mongoose": "^7.3.1"
   }
 }

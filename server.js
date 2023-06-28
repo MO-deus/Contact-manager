@@ -14,6 +14,7 @@ const port = process.env.PORT || 3000;
 // used for parsing the stream of body
 app.use(express.json());
 app.use("/api/contacts", require("./routes/ContactRoutes"));
+app.use("/api/users", require("./routes/UserRoutes"));
 
 // middleware for error handling
 app.use(ErrHandler);

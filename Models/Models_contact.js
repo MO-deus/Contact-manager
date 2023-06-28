@@ -5,17 +5,18 @@ const contact_schema = mongoose.Schema({
         type: String,
         required: [true, "Name of a person is required"],
     },
-    email: {
+    guild: {
         type: String,
-        required: [true, "Email id of a person is required"],
+        required: [true, "Guild of a person is required"],
     },
-    conttact: {
+    rank: {
         type: String,
-        required: [true, "Contact number of a person is required"],
+        required: [true, "rank of a person is required"],
     }
 
 }, {
     timestamps : true
 });
 
-module.exports = mongoose.model("Coonect", contact_schema);
+//                             "database-name"
+module.exports = mongoose.model("guilddatas", contact_schema);
