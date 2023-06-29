@@ -37,7 +37,7 @@ const PostUserDat = asynchandler( async (req, res) => {
         res.status(400);
         throw new Error("Adventurer already exists in DB");
     }
-
+    
 });
 
 // @desc : route for logging in the session
