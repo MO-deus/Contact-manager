@@ -2,6 +2,8 @@
 const asynchandler = require("express-async-handler");
 const UserDatDB = require("../Models/ModelsUser");
 const bcrypt = require("bcrypt");
+const { json } = require("express");
+const jwt = require("jsonwebtoken");
 
 // @desc : route for registeration
 // @route : POST: /users/register
@@ -38,12 +40,32 @@ const PostUserDat = asynchandler( async (req, res) => {
         throw new Error("Adventurer already exists in DB");
     }
     
+
+
 });
 
 // @desc : route for logging in the session
 // @route : POST: /users/login
 // @access : public
 const PostLogin = asynchandler( async (req, res)=>{
+    // user sends Alias and password
+    const {Alias, password} = req.body;
+
+    if(!Alias || !password){
+        res.status(400);
+        throw new Error("Alias is empty");
+    }
+
+    const entry = await UserDatDB.findOne({Alias});
+    if(entry && (await bcrypt.compare(password, entry.password))){
+        res.status(200).json({message :"Credentials Valid"});
+    }
+
+    const token = jwt.sign({
+        dat : {
+            
+        }
+    })
 
 });
-module.exports = {PostUserDat};
+module.exports = {PostUserDat, PostLogin};
